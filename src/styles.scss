@@ -1,0 +1,33 @@
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
+
+
+body {
+  // min-height: 75rem;
+  padding-top: 4.5rem;
+}
+
+.navbar.bg-dark {
+  background-color: #000000 !important;
+}
+
+.table-cell-hide-on-small {
+  display: table-cell !important;
+}
+
+@media (max-width: 768px) {
+  .table-cell-hide-on-small {
+    display: none !important;
+  }
+}
+
+.table-cell-hide-on-medium {
+  display: table-cell !important;
+}
+
+@media (max-width: 991px) {
+  .table-cell-hide-on-medium {
+    display: none !important;
+  }
+
+}
