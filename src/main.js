@@ -1,7 +1,7 @@
 
 import './styles.scss'
 import './theme.css'
-import '../public/styles.css'
+import '../public/asset-styles.css'
 
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
