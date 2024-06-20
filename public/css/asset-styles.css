@@ -1,12 +1,4 @@
 
-body {
-    /* min-height: 75rem; */
-    padding-top: 4.5rem;
-  }
-  
-  .navbar.bg-dark {
-    background-color: #000000 !important;
-  }
   
   .table-cell-hide-on-small {
     display: table-cell !important;

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 
-import { Dropdown, PageHeading, Breadcrumbs, FullScreenSpinner, ArrowLink, Table } from "@/components";
+import { Dropdown, PageHeading, Breadcrumbs, FullScreenSpinner, Error500, Error404 } from "@/components";
 
 const loading = ref(false)
 
@@ -26,8 +26,16 @@ submitData()
     <FullScreenSpinner />
   </div>
 
+  <div v-else-if="1 === 2">
+
+    <Error404 />
+
+  </div>
+
 
   <div v-else>
+
+
     <Breadcrumbs class="mt-3" :links="[
       { label: 'Home', href: 'javascript:void(0)' },
       { label: 'Library', current: true }
@@ -56,7 +64,7 @@ submitData()
       </template>
     </PageHeading>
 
-  
+
 
   </div>
 

@@ -6,17 +6,28 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      //component: () => import('../views/AboutView.vue')
-    }
+      path: '/table-using-component',
+      component: () => import('@/views/TableUsingComponent.vue')
+    },
+    {
+      path: '/table-using-html',
+      component: () => import('@/views/TableUsingHtml.vue')
+    },
+    {
+      path: '/error404',
+      component: () => import('@/components/Error404.vue')
+    },
+    {
+      path: '/error500',
+      component: () => import('@/components/Error500.vue')
+    },
+    {
+      path: '/dev',
+      component: () => import('@/views/Dev.vue')
+    },
   ]
 })
 
