@@ -1,15 +1,16 @@
 <script setup>
-import Signup from '../components/Signup.vue';
+import SignupForm from '../components/SignupForm.vue';
+import countries from '../assets/data/countries.json';
 
 </script>
 
 <template>
 
-    <Signup @submit="(data) => console.log(data)">
+    <SignupForm @submit="(data) => console.log(data)" :countries="countries">
         <template #logo>
             <h1>Backstack</h1>
         </template>
-    </Signup>
+    </SignupForm>
 
 </template>
 

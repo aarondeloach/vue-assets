@@ -1,4 +1,8 @@
-<script setup>
+<!-- 
+ This form is intended to be placed within a container controlled by the 
+ parent component to determine its final dimensions and positioning. 
+ -->
+ <script setup>
 import { ref } from 'vue'
 
 import { FormInput } from '@/components'
@@ -18,6 +22,10 @@ const props = defineProps({
     loading: {
         type: Boolean,
         default: false
+    },
+    errors: {
+        type: Object,
+        default: {}
     }
 })
 
@@ -27,36 +35,12 @@ const data = ref({
 })
 
 
-const errors = ref({})
-
-
-const submit = () => {
-
-    errors.value = {}
-
-    if (!data.value.password) {
-        errors.value.password = 'Password required';
-    }
-    if (!data.value.confirm) {
-        errors.value.confirm = 'Password confirmation required';
-    }
-
-    if(data.value.password && data.value.confirm && data.value.password !== data.value.confirm) {
-        errors.value.confirm = 'Passwords do not match';
-    }
-
-    if (Object.keys(errors.value).length > 0) {
-        return;
-    }
-    emit('submit', data.value);
-};
 </script>
 
 <template>
 
-    <main class="d-flex justify-content-center align-items-center">
 
-        <form novalidate @submit.prevent="submit" class="form-signin">
+        <form novalidate @submit.prevent="emit('submit', data)" class="signin-form">
 
             <div class="text-center">
                 <slot name="logo"></slot>
@@ -82,25 +66,9 @@ const submit = () => {
             </div>
 
         </form>
-    </main>
 </template>
 
 
 <style scoped>
-.d-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    /* full height of viewport */
-    height: 100vh;
-}
-
-.form-signin {
-    max-width: 350px;
-    width: 100%;
-
-    /* center form horizontally */
-    margin: auto;
-}
 </style>

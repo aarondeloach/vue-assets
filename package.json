@@ -1,10 +1,13 @@
 {
   "name": "vue-assets",
-  "version": "1.0.24",
+  "version": "1.0.56",
   "description": "Assets for use in my Vue applications.",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "assets/css",
+    "assets/js",
+    "assets/data"
   ],
   "main": "./dist/vue-assets.umd.cjs",
   "module": "./dist/vue-assets.js",
@@ -12,7 +15,10 @@
     ".": {
       "import": "./dist/vue-assets.js",
       "require": "./dist/vue-assets.umd.cjs"
-    }
+    },
+    "./assets/css/*": "./dist/assets/css/*",
+    "./assets/js/*": "./dist/assets/js/*",
+    "./assets/data/*": "./dist/assets/data/*"
   },
   "scripts": {
     "dev": "vite",
@@ -30,6 +36,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "rollup-plugin-copy": "^3.5.0",
     "sass": "^1.77.5",
     "vite": "^5.1.6"
   }

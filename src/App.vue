@@ -68,9 +68,6 @@ const hasAccess = (access) => {
   </nav>
 
 
-
-
-
   <main class="container">
     <router-view />
   </main>

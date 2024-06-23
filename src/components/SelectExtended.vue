@@ -30,30 +30,38 @@ const handleClick = (option) => {
 </script>
 
 <template>
-    <div class="is-invalid">
-        <label v-if="label" :for="id" class="form-label">{{ label }}</label>
-        <div :id="id" class="dropdown d-flex justify-content-between align-items-center">
-            <a class="btn btn-secondary dropdown-toggle w-100 d-flex justify-content-between align-items-center border-0" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <span>{{ placeholder }}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                </svg>
-            </a>
 
-            <ul class="dropdown-menu">
-                <li v-for="option in options" :key="option.id"><a @click.prevent="handleClick(option)"
-                        class="dropdown-item mt-1" href="javascript:void(0)">{{ option.description ? option.label + ' - ' +
-                            option.description : option.label }}</a></li>
-            </ul>
+ 
 
-            <div v-if="error" class="invalid-feedback">
-                {{ error }}
+
+        <div class="is-invalid">
+            <label v-if="label" :for="id" class="form-label">{{ label }}</label>
+            <div :id="id" class="dropdown d-flex justify-content-between align-items-center">
+                <a class="btn btn-secondary dropdown-toggle w-100 d-flex justify-content-between align-items-center border-0"
+                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span>{{ placeholder }}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                        class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li v-for="option in options" :key="option.id"><a @click.prevent="handleClick(option)"
+                            class="dropdown-item mt-1" href="javascript:void(0)">{{ option.description ? option.label +
+                                ' - ' +
+                                option.description : option.label }}</a></li>
+                </ul>
+
+                <div v-if="error" class="invalid-feedback">
+                    {{ error }}
+                </div>
+
+                <div v-if="help" class="form-text">{{ help }}</div>
             </div>
-
-            <div v-if="help" class="form-text">{{ help }}</div>
         </div>
-    </div>
+    
 </template>
 
 
@@ -74,18 +82,23 @@ const handleClick = (option) => {
     }
 }
 */
+
+
+
+
+
 .dropdown-menu {
     max-height: 400px;
     overflow-y: auto;
-}
-
-.dropdown-toggle::after {
-    display: none;
 }
 .dropdown-item {
     white-space: normal;
     overflow-wrap: break-word;
 }
+.dropdown-toggle::after {
+    display: none;
+}
+
 .dropdown {
     width: 100%;
     border: var(--bs-border-width) solid var(--bs-border-color);
@@ -111,4 +124,5 @@ const handleClick = (option) => {
     background-color:#f0eded;
     color: #333;
 }
+
 </style>

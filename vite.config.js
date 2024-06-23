@@ -2,12 +2,21 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import { resolve } from "path";
 import vue from '@vitejs/plugin-vue'
+import copy from 'rollup-plugin-copy'
 
 // https://vitejs.dev/guide/build.html#library-mode
 
 export default defineConfig({
   plugins: [
     vue(),
+    copy({
+      targets: [
+        { src: 'src/assets/css/*', dest: 'dist/assets/css' },
+        { src: 'src/assets/js/*', dest: 'dist/assets/js' },
+        { src: 'src/assets/data/*', dest: 'dist/assets/data' }
+      ],
+      hook: 'writeBundle' // Run the plugin at the writeBundle hook
+    })
   ],
   resolve: {
     alias: {
@@ -32,6 +41,7 @@ export default defineConfig({
         globals: {
           vue: "Vue",
         },
+        // assetFileNames: 'assets/[name]-[hash][extname]'
       },
     },
   }

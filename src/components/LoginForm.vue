@@ -1,3 +1,9 @@
+
+<!-- 
+ This form is intended to be placed within a container controlled by the 
+ parent component to determine its final dimensions and positioning. 
+ -->
+
 <script setup>
 import { ref } from 'vue'
 
@@ -25,6 +31,10 @@ const props = defineProps({
     allowRememberMe: {
         type: Boolean,
         default: false
+    },
+    errors: {
+        type: Object,
+        default: {}
     }
 })
 
@@ -34,33 +44,11 @@ const data = ref({
     rememberMe: false
 })
 
-
-const errors = ref({})
-
-
-const submit = () => {
-
-    errors.value = {}
-
-    if (!data.value.username) {
-        errors.value.username = 'Username required';
-    }
-    if (!data.value.password) {
-        errors.value.password = 'Password required';
-    }
-
-    if (Object.keys(errors.value).length > 0) {
-        return;
-    }
-    emit('submit', data.value);
-};
 </script>
 
 <template>
 
-    <main class="d-flex justify-content-center align-items-center">
-
-        <form novalidate @submit.prevent="submit" class="form-signin">
+        <form novalidate @submit.prevent="emit('submit', data)" class="signin-form">
 
             <div class="text-center">
                 <slot name="logo"></slot>
@@ -85,8 +73,8 @@ const submit = () => {
             <div v-else class="mt-3"> {{ ' ' }}</div>
 
             <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="loading">
-               <span v-if="loading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-               <span v-else>Log in</span>
+                <span v-if="loading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                <span v-else>Log in</span>
             </button>
 
             <div class="mt-3 mb-3 text-body-secondary text-center">
@@ -95,25 +83,7 @@ const submit = () => {
             </div>
 
         </form>
-    </main>
 </template>
 
 
-<style scoped>
-.d-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    /* full height of viewport */
-    height: 100vh;
-}
-
-.form-signin {
-    max-width: 350px;
-    width: 100%;
-
-    /* center form horizontally */
-    margin: auto;
-}
-</style>
+<style scoped></style>
