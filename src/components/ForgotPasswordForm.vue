@@ -24,8 +24,9 @@ const props = defineProps({
         type: Object,
         default: {}
     },
-    showSuccess: {
+    success: {
         type: Boolean,
+        required: true,
         default: false
     }
 })
@@ -46,12 +47,11 @@ const data = ref({
             <slot name="logo"></slot>
         </div>
 
-        <h2 class="h4 mb-3 fw-normal text-center">Lookup Password</h2>
+        <h2 class="h4 mb-3 fw-normal text-center">{{ success ? 'Check your email!' :  'Lookup Password' }}</h2>
 
-        <div v-if="showSuccess" class="text-center">
+        <div v-if="success" class="text-center">
 
-            <h5 class="mt-4 mb-4 fw-normal">Check your email!</h5>
-            <p> Password recovery instructions have been sent to your email address. </p>
+            <p> Password recovery instructions have been sent to your email address.</p>
         
         </div>
         

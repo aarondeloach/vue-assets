@@ -41,7 +41,7 @@ export default defineConfig({
         globals: {
           vue: "Vue",
         },
-        // assetFileNames: 'assets/[name]-[hash][extname]'
+        //assetFileNames: 'assets/[name]-[hash][extname]'
       },
     },
   }

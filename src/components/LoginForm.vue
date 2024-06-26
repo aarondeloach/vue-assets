@@ -1,4 +1,3 @@
-
 <!-- 
  This form is intended to be placed within a container controlled by the 
  parent component to determine its final dimensions and positioning. 
@@ -48,41 +47,41 @@ const data = ref({
 
 <template>
 
-        <form novalidate @submit.prevent="emit('submit', data)" class="signin-form">
+    <form novalidate @submit.prevent="emit('submit', data)" class="signin-form">
 
-            <div class="text-center">
-                <slot name="logo"></slot>
-            </div>
+        <div class="text-center">
+            <slot name="logo"></slot>
+        </div>
 
-            <h2 class="h4 mb-3 fw-normal text-center">Log In</h2>
+        <h2 class="h4 mb-3 fw-normal text-center">Log In</h2>
 
-            <FormInput id="username" label="Username" v-model="data.username" :error="errors.username" />
-
-
-            <FormInput id="password" label="Password" v-model="data.password" :error="errors.password" type="password"
-                class="mt-3" />
+        <FormInput id="username" label="Username" v-model="data.username" :error="errors.username" />
 
 
-            <div v-if="allowRememberMe" class="form-check text-start mt-3">
-                <input v-model="data.rememberMe" class="form-check-input" type="checkbox" value="remember-me"
-                    id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Remember me
-                </label>
-            </div>
-            <div v-else class="mt-3"> {{ ' ' }}</div>
+        <FormInput id="password" label="Password" v-model="data.password" :error="errors.password" type="password"
+            class="mt-3" />
 
-            <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="loading">
-                <span v-if="loading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                <span v-else>Log in</span>
-            </button>
 
-            <div class="mt-3 mb-3 text-body-secondary text-center">
-                <div><a :href="forgotPasswordRoute">Forgot your password?</a></div>
-                <div v-if="allowSignup" class="mt-2"><a :href="signupRoute">Need an account?</a></div>
-            </div>
+        <div v-if="allowRememberMe" class="form-check text-start mt-3">
+            <input v-model="data.rememberMe" class="form-check-input" type="checkbox" value="remember-me"
+                id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Remember me
+            </label>
+        </div>
+        <div v-else class="mt-3"> {{ ' ' }}</div>
 
-        </form>
+        <button class="btn btn-primary w-100 py-2 mt-4" type="submit" :disabled="loading">
+            <span v-if="loading" class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <span v-else>Log in</span>
+        </button>
+
+        <div class="mt-3 mb-3 text-body-secondary text-center">
+            <div><a :href="forgotPasswordRoute">Forgot your password?</a></div>
+            <div v-if="allowSignup" class="mt-2"><a :href="signupRoute">Need an account?</a></div>
+        </div>
+
+    </form>
 </template>
 
 

@@ -12,6 +12,7 @@ import PageHeading from "./PageHeading.vue"
 import ResetPasswordForm from "./ResetPasswordForm.vue"
 import SelectExtended from "./SelectExtended.vue"
 import SignupForm from "./SignupForm.vue"
+import SignupActivation from "./SignupActivation.vue"
 import Table from "./Table.vue"
 
 export {
@@ -29,5 +30,6 @@ export {
     ResetPasswordForm,
     SelectExtended,
     SignupForm,
+    SignupActivation,
     Table
 }
